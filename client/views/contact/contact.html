@@ -1,0 +1,166 @@
+<template name="contact">
+    <!-- Page Header
+    ========================-->
+    <div id="en-header">
+        <div class="container">
+            <h2 class="pull-left">Contact</h2>
+            <ol class="breadcrumb pull-right">
+              <li><a href="{{ pathFor 'home' }}">Home</a></li>
+              <li class="active">Contact</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Intro 
+    ========================-->
+    <div id="en-content">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="contact-details">
+                        <h4>Main Office Info</h4>
+                        <hr>
+                        <ul class="list-unstyled list-block">
+                            <li><strong>Office Hours: </strong> <br>{{ dict 'home.hoursOfOperation' 'No Hours of Operation' }}</li>
+                            <li><strong>Address: </strong> <br>
+                                {{ dict 'home.address' 'No address' }} {{ dict 'home.city' 'No City'}}, {{ dict 'home.state' 'No State' }} {{ dict 'home.zipcode' 'zipcode' }}</li>
+                            <li><strong>Phone: </strong> <br>
+                                {{ dict 'home.mainNumber' 'No Number' }}</li>
+                            <li><strong>Fax: </strong> <br>
+                                {{ dict 'home.faxNumber' 'No Fax' }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+
+                <!-- Right Content 8 Cols -->
+                <div class="col-sm-8 col-md-8">
+           
+                   {{# autoForm schema='ContactSchema' id="contactForm" type="normal" }}
+                        <div class="row">
+                            
+                            <div class="col-md-12">
+                                <div class="form-group"> <!-- Your name input -->
+                                    {{> afQuickField name="categoryId" label=true }}
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group"> <!-- Your name input -->
+                                    {{> afQuickField name="name" placeholder="YOUR NAME" label=false }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <!-- Your email input -->
+                                   {{> afQuickField name="email" placeholder="YOUR EMAIL" label=false }}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <textarea class="form-control" rows="6" placeholder="Tell Us Something..." id="message" required data-validation-required-message="Please enter a message."></textarea> -->
+                        
+                        
+
+                        {{> afQuickField name="message" rows=8  placeholder="YOUR MESSAGE" label=false }}
+
+                        <br>
+
+                        {{> reCAPTCHA }}
+
+                        <br>
+
+                        {{#if getCaptchaErrors }}
+                                <!-- <p class="red-text">Please check the captcha!</p> -->
+                            <p class="help-block text-danger"></p>
+                        {{ else }}
+                             <div id="success"></div>
+                        {{/if}}
+
+                        
+
+                        
+                        <button type="submit" class="btn btn-send en-btn dark">Send Message</button> <!-- Send button -->
+                    {{/ autoForm }} 
+
+                    <div class="clearfix"></div>
+                    <div class="spacer"></div>
+
+                    <div class="row">
+                        
+
+                        
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Other Offices
+    ========================-->
+    <div id="en-offices">
+        <div class="container">
+            <div class="row">
+
+                <!-- Left Content 4 Cols -->
+                <div class="col-sm-4 col-md-4">
+                    <div class="section-title text-left"> <!-- Left Section Title -->
+                        <h2>{{ dict 'contact.branchTitle' 'No Title' }}</h2>
+                        <hr>
+                        <a class="read-more" href="{{ dict 'contact.branchBtnLink' '#' }}">{{ dict 'contact.branchBtnText' 'No Text' }} <span class="fa fa-chevron-circle-right"></span></a>
+                    </div>
+                </div>
+
+                <!-- Right Content 8 Cols -->
+                <div class="col-sm-8 col-md-8 fr-view">
+                    <!-- <p><strong><em>Enhenyero INC.</em></strong> as one of the biggest Engineering Company in the World we have 6 other branches worldwide. As we continue to grow, we are planning to expand more of our branches from time to time. Visit the nearest branch in you place and make you Engineering Project done right. </p> -->
+                    {{{ dict 'contact.content' 'No Content' }}}
+
+                    <div class="clearfix"></div>
+                    <div class="spacer"></div>
+
+                    <div class="row">
+                        {{#each branch }}
+                        
+                        <div class="col-sm-6 col-md-4">
+                            <div class="offices fr-view">
+                                <h4>{{ name }}</h4>
+                                {{{ content }}}
+                                <a class="read-more" href="{{ locationLink }}" target="_BLANK">{{ locationText }} <!-- <span class="fa fa-chevron-circle-right"></span> -->
+                                </a>
+                                
+                            </div>
+                        </div>
+
+                        {{/each }}
+
+                        
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+        <!-- CTA
+    ========================-->
+    <div class="en-cta" style="background-image: url( {{ dict 'parallax.homeDividerImage.url' }});">
+        <div class="overlay color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h2>{{ dict 'home(section titles).homePageDividerTitle' 'No Title' }}</h2>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-default en-btn light" href="{{ dict 'home(section titles).homePageMeBtnLink' '#' }}" role="button">{{ dict 'home(section titles).homePageBtnText' 'No Text' }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

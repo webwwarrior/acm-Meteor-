@@ -1,0 +1,22 @@
+<template name="testimonialsAll">
+	<!-- Testimonial Section
+    ==================================-->
+    <div id="en-testimonials" class="testimonial color" style="    background: url({{ dict 'parallax.testimonials.url' }});">
+        <div class="overlay text-center">
+            <div class="container">
+
+                <div id="testimonial" class="owl-carousel owl-theme"> <!-- Testimonial Slider Wrap -->
+                    {{#each testimonial }}
+                    <div class="item">
+                        <blockquote>"{{ content }}"
+                        <footer>{{ name }}, {{ occupation }}</footer>
+                        </blockquote>
+                    </div>
+                    {{/each }}
+
+                </div><!-- End Testimonial Slider Wrap -->
+
+            </div>
+        </div>
+    </div>
+</template>

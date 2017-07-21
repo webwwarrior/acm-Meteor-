@@ -1,0 +1,1 @@
+Template.adminSidebarReplace.replaces("orionBootstrapSidebar");

@@ -1,0 +1,2 @@
+Template.adminHeaderReplace.replaces("orionBootstrapHeader");
+

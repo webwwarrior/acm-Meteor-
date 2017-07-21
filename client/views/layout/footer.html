@@ -1,0 +1,159 @@
+<template name="footer">
+	<!-- Footer Area -->
+    <div id="en-footer">
+        <div class="footer-content">
+            <div class="container">
+
+
+                <div class="row">
+
+
+
+                    <div class="col-sm-5 col-md-5">
+                        <a class="logo" href="{{ pathFor 'home' }}"><img src="{{ dict 'home.logo.url' '#' }}" alt="" style="width: 50%;"></a>
+
+                        <div class="widget">
+                            
+                           <!-- 
+                            <br>
+                            <small>{{{ dict 'home.aboutUsContent' 'No Content' }}}</small> -->
+                            <br>
+                            <br>
+                            <address>
+                                <strong>{{ dict 'home.title' 'No Title' }}</strong><br>
+                                {{ dict 'home.address' 'No address' }}, {{ dict 'home.city' 'No city' }}<br>
+                                {{ dict 'home.state' 'No state' }} {{ dict 'home.zipcode' 'No zipcode' }}<br>
+                                <abbr title="Phone">P:</abbr> 
+                                {{ dict 'home.mainNumber' 'No Number' }}
+                            </address>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="widget">
+                            <div class="widget-title text-left">
+                                <h4>Page Links</h4>
+                                <hr>
+                            </div>
+                            <ul class="list-unstyled list-block">
+                                
+                                {{#each parentPage }}
+                                <li><i class="fa fa-long-arrow-right"></i><a href="{{ path }}">{{ title }}</a></li>
+                                {{/each }}
+                                <li><i class="fa fa-long-arrow-right"></i><a href="{{ pathFor 'allPosts' }}">News</a></li>
+                                
+                                <!-- <li><i class="fa fa-long-arrow-right"></i><a href="{{ pathFor 'teamMembers' }}">Team</a></li> -->
+
+                                <li><i class="fa fa-long-arrow-right"></i><a href="{{ pathFor 'contact' }}">Contact Us</a></li>
+                                <li><i class="fa fa-long-arrow-right"></i><a href="{{ pathFor 'sitemap' }}">Sitemap</a></li>
+
+    
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 col-md-3">
+                        <div class="widget">
+                            <div class="widget-title text-left" style="visibility: hidden;">
+                                <h4>Page Links</h4>
+                                <hr>
+                            </div>
+                            <ul class="list-unstyled list-block">
+                                {{#each parentPage }}
+                                {{#each childPage title }}
+                                    <li><i class="fa fa-long-arrow-right"></i><a href="{{ path }}">{{ title }}</a></li>
+                                {{/each }}
+                                {{/each }}
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="smallspacer"></div>
+
+                <div class="row">
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="widget">
+                            <div class="widget-title text-left">
+                                <h4>{{ dict 'home(section titles).subscribeTitle' 'Subscribe With Us' }}</h4>
+                                <hr>
+                            </div>
+                            <p>
+                            {{ dict 'home(section titles).subscribeSubTitle' 'Get the latest report about the project and company profile.' }}</p>
+
+                            {{# unless contactSent }}
+                            <!--Newsletter form start-->
+                                {{#autoForm schema='ContactFromFooter' id='contactFormFooterId' type='method' meteormethod='contactFormMethod'}}
+                                <div class="form-group">
+                                  {{> afQuickField name="useremail" placeholder="Enter Email" label=false }}
+                                </div>
+                                <button type="submit" class="btn btn-default en-btn">Subscribe</button>
+                               {{/ autoForm }}
+                            {{ else }}
+                                
+                                <div class="isa_success">
+                                    {{ dict 'global(emails).newsletterSuccessMessage' }} 
+                                </div>
+                            
+                            {{/ unless }}
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-sm-5 col-md-5">
+                        <div class="widget">
+                            <div class="widget-title text-left">
+                                <h4>Latest Posts</h4>
+                                <hr>
+                            </div>
+                            {{#each posts }}
+                            <div class="media">
+                              
+                        
+
+                                  <div class="media-body fr-view">
+                                    <a href="{{ pathFor 'singlePost' }}"><h5>
+                                        {{ title }}
+                                    </h5></a>
+                                    <small class="truncate">{{{ body }}}</small>
+                                  </div>
+
+
+                            </div>
+                            {{/each }}
+
+                            
+                        </div>
+                    </div> -->
+
+                </div>
+
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="container text-center">
+                <p>{{ dict 'home.boilerCopy' 'No text' }}</p>
+                <p>{{ dict 'home.copyright' 'No Copyright Info' }}</p>
+            </div>
+
+            
+
+
+        </div>
+        <div style="margin-top: 20px;">
+                <p>
+                    <a class="pull-right" href="http://www.goodgroupllc.com/" target="_BLANK" style="
+                        padding-top: 5px;
+                        padding-right: 10px;
+                        padding-bottom: 5px;
+                        font-size: 13px;
+                        color: #5c5c5c;">
+                    Web Development by Good Marketing Group
+                  </a>
+                </p>
+        </div>
+    </div>
+</template>

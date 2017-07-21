@@ -1,0 +1,19 @@
+<template name="layout">
+	<div class="page-wrapper">
+	{{# if dictionaryReady }}
+		{{> header }}		
+	    {{> yield }}		
+
+		{{> footer }}
+
+	{{ else }}
+		{{> loading }}
+	{{/if }}
+	</div>
+	{{> layoutCss }}
+</template>
+
+<template name="loading">
+	 <!-- Preloader -->
+    <div class="preloader"></div>
+</template>

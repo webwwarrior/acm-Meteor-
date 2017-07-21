@@ -1,0 +1,150 @@
+<template name="allPosts">
+        <!-- Page Header
+    ========================-->
+    <div id="en-header">
+        <div class="container">
+            <h2 class="pull-left">News / Blog</h2>
+            <ol class="breadcrumb pull-right">
+              <li><a href="{{ pathFor 'home' }}">Home</a></li>
+              <li class="active"><a href="{{ pathFor 'allPosts' }}">News Blog</a></li>
+            
+            </ol>
+        </div>
+    </div>
+
+    <!-- Page Content
+    ========================-->
+    <div id="en-content">
+        <div class="container">
+
+            <div id="blogposts" class="row">
+                <!-- Blog Posts Content -->
+                <div class="col-md-8">
+
+                    <div class="row">
+                    {{#EasySearch.Each index=postsIndex }}
+
+                        <div class="col-sm-6 col-md-6">
+                            <div class="news"> <!-- Blog Post/News #1 -->
+                                <div class="featured-img" style="width:200px;">
+                                    <img src="{{ image.url }}" alt="..." class="img-responsive">
+                                    <span class="meta-date"><i class="fa fa-calendar"></i> {{ createdBy }}</span>
+                                </div>                            
+                                <a href="{{ pathFor 'singlePost' }}"><h4>{{ title }}</h4></a>
+                                <hr>
+                                <!-- <p class="meta">
+                                    <span class="meta-tags">
+                                        <i class="fa fa-tags"></i> 
+                                        <a href="#">Architecture</a>
+                                    </span> 
+                                    <span class="meta-comments">
+                                        <i class="fa fa-comments"></i> 
+                                        <a href="">20 Comments</a>
+                                    </span>
+                                </p> -->
+                                <p class="fr-view">{{{ truncatePost }}}</p>
+                                <a class="read-more" href="{{ pathFor 'singlePost' }}">Read More <span class="fa fa-chevron-circle-right"></span></a>
+                            </div>
+                        </div>
+                    {{/EasySearch.Each}}
+
+                    {{#EasySearch.IfNoResults index=postsIndex }}
+                        <h3>No posts found, try again!</h3> 
+                    {{/EasySearch.IfNoResults}}
+
+  
+                    </div>
+
+
+                    <!-- Pagination -->
+                   <!--  <div class="text-center">
+                        <ul class="pagination">
+                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
+                        </ul>
+                    </div> -->
+
+                </div> <!-- End Blog Posts Content -->
+
+                <!-- Sidebar -->
+                <div class="col-md-4">
+                    <div class="sidebar">
+
+                        <div class="sidebar-widget search">
+                            <div class="widget-title text-left">
+                                <h4>Search Blog</h4>
+                                <hr>
+                            </div>
+
+                            <form role="search">
+                                <div class="input-group form-group">
+
+                                     {{> EasySearch.Input index=postsIndex attributes=inputAttributes }}  
+                                   <!--  <input type="text" class="form-control" placeholder="Search for..."> -->
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default noradius" type="button"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </form>
+
+                        </div>
+
+                         <div class="sidebar-widget categories">
+                            <div class="widget-title text-left">
+                                <h4>Categories</h4>
+                                <hr>
+                            </div>
+
+                             <select class="form-control category-filter">
+                                <option value="">Choose a category</option>
+                                {{#each categories title }}
+                                <option value="{{ title }}">{{ title }}</option>
+                                  
+                                {{/each}}
+                              
+                            </select>
+
+                        </div>
+
+                        <div class="sidebar-widget recent-posts">
+                            <div class="widget-title text-left">
+                                <h4>Recent Posts</h4>
+                                <hr>
+                            </div>
+                            
+                            {{#each sidePosts }}
+                            <div class="media">
+                                <!-- <div class="media-left">
+                                    <a href="{{ pathFor 'singlePost' }}">
+                                      <img class="media-object" alt="" src="{{ image.url }}" style="width:74px;height:64px;">
+                                    </a>
+                                  </div> -->
+                                  <div class="media-body">
+                                    <a href="{{ pathFor 'singlePost' }}"><h5>
+                                        {{ title }}</h5>
+                                    </a>
+                                    <small>
+                                        <span class="meta-date"><i class="fa fa-calendar"></i> {{ formatDateSinglepostSide submitted }} </span>
+                                        <!-- <span class="meta-comments"><i class="fa fa-comments"></i> <a href="#">2 comments</a></span> -->
+                                    </small>
+                                  </div>
+                            </div>
+                            {{/each }}                  
+
+                        </div>
+
+                       
+
+                    
+                    </div>
+                </div><!-- End Sidebar -->
+
+            </div>
+
+        </div>
+    </div>
+</template>

@@ -1,0 +1,167 @@
+<template name="mainSlider">
+        <!-- Main Navigation
+    ========================-->
+    <div id="header-slider" class="carousel slide carousel-fade" data-ride="carousel">
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+
+            {{#each slide }}
+            <div class="item"> <!-- Slider Item #1 -->
+                <img src="{{ image.url }}" alt="...">
+                <div class="carousel-caption">
+                    <h1 class="text-shadow">{{ title }} <br>{{ title2 }} </h1>
+                    <p class="lead text-shadow">{{ subTitle }}</p>
+
+                    {{#if ifEqualsTrue }}
+                    <a class="btn btn-default en-btn my_btn" href="{{ btnLink }}" role="button" target="_BLANK">{{ btnText }}</a>
+
+                    {{ else }}
+                    
+                    <a class="btn btn-default en-btn my_btn" href="{{ btnLink }}" role="button">{{ btnText }}</a>
+                    
+                    {{/if }}
+                </div>
+            </div>
+
+            {{/each }}
+        </div>
+
+         
+        <a class="left carousel-control" href="#header-slider" role="button" data-slide="prev">
+            <span class="fa fa-long-arrow-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#header-slider" role="button" data-slide="next">
+            <span class="fa fa-long-arrow-right" aria-hidden="true"></span>
+        </a>
+    </div>
+</template>
+
+<template name="mainSlider2">
+    <!-- Main Navigation
+    ========================-->
+    <div id="header-slider" class="carousel slide carousel-fade" data-ride="carousel">
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active"> <!-- Slider Item #1 -->
+                <img src="{{ dict 'hero-slider.firstSlideImage.url' }}" alt="...">
+                <div class="carousel-caption">
+                    <h1 class="text-shadow">{{ dict 'hero-slider.firstSlideTitle1' 'No 1st Word' }} <br>{{ dict 'hero-slider.firstSlideTitle2' }} </h1>
+                    <p class="lead text-shadow">{{ dict 'hero-slider.firstSlideSubtitle' }}</p>
+
+                    {{#if firstSlideEqualsTrue }}
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.firstSlideLink' }}" role="button" target="_BLANK">{{ dict 'hero-slider.firstSlideText' 'No Text' }}</a>
+
+                    {{ else }}
+                    
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.firstSlideLink' }}" role="button">{{ dict 'hero-slider.firstSlideText' 'No Text' }}</a>
+                    
+                    {{/if }}
+                </div>
+            </div>
+            <div class="item"> <!-- Slider Item #2 -->
+                <img src="{{ dict 'hero-slider.secondSlideImage.url' }}" alt="...">
+                <div class="carousel-caption">
+                    <h1>{{ dict 'hero-slider.secondSlideTitle1' 'No 1st Word' }} <br>{{ dict 'hero-slider.secondSlideTitle2' }} </h1>
+                    <p class="lead">{{ dict 'hero-slider.secondSlideSubtitle' }}</p>
+
+                    {{#if secondSlideEqualsTrue }}
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.secondSlideLink' }}" role="button" target="_BLANK">{{ dict 'hero-slider.secondSlideText' 'No Text' }}</a>
+
+                    {{ else }}
+
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.secondSlideLink' }}" role="button">{{ dict 'hero-slider.secondSlideText' 'No Text' }}</a>
+
+                    {{/if }}
+                   
+                </div>
+            </div>
+            <div class="item"> <!-- Slider Item #3 -->
+                <img src="{{ dict 'hero-slider.thirdSlideImage.url' }}" alt="...">
+                <div class="carousel-caption">
+                    <h1>{{ dict 'hero-slider.thirdSlideTitle1' 'No 1st Word' }} <br>{{ dict 'hero-slider.thirdSlideTitle2' }} </h1>
+                    <p class="lead">{{ dict 'hero-slider.thirdSlideSubtitle' }}</p>
+
+                    {{#if thirdSlideEqualsTrue }}
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.thirdSlideLink' }}" role="button" target="_BLANK">{{ dict 'hero-slider.thirdSlideText' 'No Text' }}</a>
+
+                    {{ else }}
+
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.thirdSlideLink' }}" role="button">{{ dict 'hero-slider.thirdSlideText' 'No Text' }}</a>
+
+                    {{/if }}
+                    <!-- <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.thirdSlideLink' }}" role="button">{{ dict 'hero-slider.thirdSlideText' 'No Text' }}</a> -->
+                </div>
+            </div>
+            
+            {{#if dict 'hero-slider.fourthSlideImage.url' }}
+            <div class="item"> <!-- Slider Item #3 -->
+                <img src="{{ dict 'hero-slider.fourthSlideImage.url' }}" alt="...">
+                <div class="carousel-caption">
+                    <h1>{{ dict 'hero-slider.fourthSlideTitle1' 'No 1st Word' }} <br>{{ dict 'hero-slider.fourthSlideTitle2' }} </h1>
+                    <p class="lead">{{ dict 'hero-slider.fourthSlideSubtitle' }}</p>
+                    
+                    {{#if fourthSlideEqualsTrue }}
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.fourthSlideLink' }}" role="button" target="_BLANK">{{ dict 'hero-slider.fourthSlideText' 'No Text' }}</a>
+
+                    {{ else }}
+
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.fourthSlideLink' }}" role="button">{{ dict 'hero-slider.fourthSlideText' 'No Text' }}</a>
+
+                    {{/if }}
+                </div>
+            </div>
+            {{/if }}
+
+            {{#if dict 'hero-slider.fiveSlideImage.url' }}
+            <div class="item"> <!-- Slider Item #3 -->
+                <img src="{{ dict 'hero-slider.fiveSlideImage.url' }}" alt="...">
+                <div class="carousel-caption">
+                    <h1>{{ dict 'hero-slider.fiveSlideTitle1' 'No 1st Word' }} <br>{{ dict 'hero-slider.fiveSlideTitle2' }} </h1>
+                    <p class="lead">{{ dict 'hero-slider.fiveSlideSubtitle' }}</p>
+                    
+
+                    {{#if fiveSlideEqualsTrue }}
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.fiveSlideLink' }}" role="button" target="_BLANK">{{ dict 'hero-slider.fiveSlideText' 'No Text' }}</a>
+
+                    {{ else }}
+
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.fiveSlideLink' }}" role="button">{{ dict 'hero-slider.fiveSlideText' 'No Text' }}</a>
+
+                    {{/if }}
+                </div>
+            </div>
+            {{/if }}
+
+            {{#if dict 'hero-slider.sixSlideImage.url' }}
+            <div class="item"> <!-- Slider Item #3 -->
+                <img src="{{ dict 'hero-slider.sixSlideImage.url' }}" alt="...">
+                <div class="carousel-caption">
+                    <h1>{{ dict 'hero-slider.sixSlideTitle1' 'No 1st Word' }} <br>{{ dict 'hero-slider.sixSlideTitle2' }} </h1>
+                    <p class="lead">{{ dict 'hero-slider.sixSlideSubtitle' }}</p>
+                   
+                    {{#if sixSlideEqualsTrue }}
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.sixSlideLink' }}" role="button" target="_BLANK">{{ dict 'hero-slider.sixSlideText' 'No Text' }}</a>
+
+                    {{ else }}
+
+                    <a class="btn btn-default en-btn my_btn" href="{{ dict 'hero-slider.sixSlideLink' }}" role="button">{{ dict 'hero-slider.sixSlideText' 'No Text' }}</a>
+
+                    {{/if }}
+                </div>
+            </div>
+            {{/if }}
+
+
+        </div>
+
+         
+        <a class="left carousel-control" href="#header-slider" role="button" data-slide="prev">
+            <span class="fa fa-long-arrow-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#header-slider" role="button" data-slide="next">
+            <span class="fa fa-long-arrow-right" aria-hidden="true"></span>
+        </a>
+    </div>
+</template>

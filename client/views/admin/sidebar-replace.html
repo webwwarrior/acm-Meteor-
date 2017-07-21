@@ -1,0 +1,27 @@
+<template name="adminSidebarReplace">
+ <ul class="sidebar-nav orion-links">
+    <li class="sidebar-brand">
+      <a href="{{ options 'homePath' '/' }}">
+        <!-- {{ options 'siteName' 'Admin' }} -->
+        <img src="{{ dict 'home.logo.url' '#' }}" alt="Brand Logo">
+      </a>
+    </li>
+    {{# each adminLinks }}
+      {{> orionBootstrapSidebarLink }}
+    {{/ each }}
+  </ul>
+  <style>
+    .sidebar-brand img {
+      width: 150px;
+      margin-top: 10px;
+      margin-right: 5px;
+      max-width: 100%;
+      height: auto;
+    }
+    .orion-bootstrap-admin .sidebar-nav > .sidebar-brand {
+        height: 104px;
+        font-size: 18px;
+        line-height: 61px;
+    }
+  </style>
+</template>

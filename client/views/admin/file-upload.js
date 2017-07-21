@@ -1,0 +1,1 @@
+// Template.fileUploadReplace.replaces("orionAttributesFileUpload");

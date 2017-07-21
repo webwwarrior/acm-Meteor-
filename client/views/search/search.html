@@ -1,0 +1,153 @@
+<template name="search">
+    <!-- Page Header
+    ========================-->
+    <div id="en-header">
+        <div class="container">
+            <h2 class="pull-left">Search</h2>
+            <ol class="breadcrumb pull-right">
+              <li><a href="{{ pathFor 'home' }}">Home</a></li>
+              <li class="active">Search</li>
+            </ol>
+        </div>
+    </div>
+
+
+   <!--  {{#EasySearch.IfNoResults index=PagesIndex }}
+        <div class="text-center">
+            <br>
+            <p>
+              Sorry, no results with that search query, please try again.
+            </p>
+        </div>
+    {{/EasySearch.IfNoResults}} -->
+
+    <div id="en-content">
+    
+        <!-- Company History
+        ========================-->
+        <div class="container">
+
+            <h2 class="text-center">Search Results</h2>    
+            <br>
+            
+                {{> desktopSearch}}
+   
+            <br>
+            
+        </div> <!-- End Search Section -->
+        
+    </div>
+
+
+
+    <style>
+        .results img {
+            display: none;
+        }
+
+    </style>
+
+</template>
+
+<template name="desktopSearch">
+    
+        <script>
+      (function() {
+        var cx = '008303202266542071266:il7odzvdjyk';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+
+
+    </script>
+    <gcse:searchresults-only></gcse:searchresults-only>
+    
+</template>
+
+<template name="search2">
+	<!-- Page Header
+    ========================-->
+    <div id="en-header">
+        <div class="container">
+            <h2 class="pull-left">Search</h2>
+            <ol class="breadcrumb pull-right">
+              <li><a href="{{ pathFor 'home' }}">Home</a></li>
+              <li class="active">Search</li>
+            </ol>
+        </div>
+    </div>
+
+
+   <!--  {{#EasySearch.IfNoResults index=PagesIndex }}
+        <div class="text-center">
+            <br>
+            <p>
+              Sorry, no results with that search query, please try again.
+            </p>
+        </div>
+    {{/EasySearch.IfNoResults}} -->
+
+    <div id="en-content">
+    
+        <!-- Company History
+        ========================-->
+        <div class="container">
+
+            <h2 class="text-center">Search</h2>    
+            <br>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 col-sm-12">
+                    {{> EasySearch.Input index=PagesIndex attributes=inputAttrs }}
+                </div>
+            </div>
+           
+             <br><br>
+            
+            
+            {{# EasySearch.IfNoResults index=PagesIndex }}
+              <div class="text-center">
+                <br>
+                <p>
+                  Sorry, no results with that search query, please try again.
+                </p>
+              </div>
+            {{/ EasySearch.IfNoResults }}
+           
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    {{# EasySearch.Each index=PagesIndex }}
+                    <h3><a href="{{ url }}">{{ title }}</a></h3>
+                    <p class="results fr-view">{{{ truncateContent }}}</p>
+                    <hr/>
+                    {{/ EasySearch.Each }}
+                </div>    
+            </div>
+
+            {{# EasySearch.IfSearching index=PagesIndex }}
+                    {{> spinner }}
+            {{/ EasySearch.IfSearching }}
+
+            <br>
+
+            <p>
+              {{> EasySearch.LoadMore index=PagesIndex attributes=btnAttrs content="Load More" }}
+            </p>
+            <br>
+            
+        </div> <!-- End Search Section -->
+        
+    </div>
+
+    <style>
+        .results img {
+            display: none;
+        }
+
+    </style>
+</template>

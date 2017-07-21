@@ -1,0 +1,109 @@
+<template name="calculator">
+
+	 <div id="en-header">
+        <div class="container">
+            <h2 class="pull-left">Throughput Calculator</h2>
+            <ol class="breadcrumb pull-right">
+              <li><a href="{{ pathFor 'home' }}">Home</a></li>
+              <li class="active">Throughput Calculator</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Page Content
+    ========================-->
+    <div id="en-content">
+    
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-sm-12">
+				<p>This is only an <strong>ESTIMATE</strong> of potential throughput in gallons per cubic foot of regenerated Strong Acid Cation resin, Strong Base Anion resin, and Mixed Bed resin based on  influent TDS (Total Dissolved Solids) or Conductivity.  If known, the levels of carbon dioxide (CO<sub>2</sub>) and silica (SiO<sub>2</sub>) can be input, otherwise a default value of 10 ppm for each will be added.  Variations in solution quality and actual quality of  the resin will affect total throughput.  The resin capacity is based on regeneration of the cation resin with hydrochloric acid and regeneration of the anion resin with ambient temperature sodium hydroxide.</p>
+
+				<p  style="color: #900;">Note: "TDS" only includes ions, not CO2 or silica which are pretty much non ionized and don't contribute to conductivity (most "TDS" meters simply take conductivity and divide by 2.53, the constant for sodium chloride).</p>
+
+
+				<div class="col-sm-6">
+					<form role="form">
+						<table style="border: 1px solid #999; margin: 5px;" class="table table-striped">
+							<tr>
+								<td colspan="2" style="text-align: center; background-color: #CCC; border-bottom: 2px solid #666"><b>Enter Water Values</b></td>
+							</tr>
+							<tr>
+								<td style="text-align: right; width: 30px;"><label for="tp-tds">TDS: </label></td>
+								<td><input type="text" id="tp-tds" class="form-control" size="10"></td>
+							</tr>
+
+							<tr>
+								<td style="text-align: right;"><label for="tp-cond">Conductivity: </label></td>
+								<td><input type="text" id="tp-cond" class="form-control" size="10"></td>
+							</tr>
+
+							<tr>
+								<td style="text-align: right;"><label for="tp-co2">CO<sub>2</sub> (ppm): </label></td>
+								<td><input type="text" id="tp-co2" class="form-control" size="10" value="10" placeholder="Assumed 0"></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><label for="tp-sio2">SiO<sub>2</sub> (ppm): </label></td>
+								<td>
+									<input type="text" id="tp-sio2" class="form-control" size="10" value="10" placeholder="Assumed 0">
+
+									<!-- <input type="text" id="tp-sio2" class="form-control" size="10" value="10" placeholder="Assumed 0"> -->
+								</td>
+							</tr>
+						</table>
+						<button type="reset" id="reset" class="btn btn-xs btn-primary btn-block" style="margin: 5px 0 20px 5px;">Reset</button>
+					</form>
+				</div>
+				<div class="col-sm-6">
+					<table style="border: 1px solid #999; margin: 5px; font-weight: bold;" class="table table-striped">
+						<tr>
+							<td colspan="2" style="text-align: center; background-color: #CCC; border-bottom: 2px solid #666;"><b>Estimated Throughput of Average Regenerated Quality Resin</b></td>
+						</tr>
+						<tr>
+							<td style="text-align: right; width: 180px;">Strong Acid Cation: </td>
+							<td><span id="tp-sac" style="color: #00A;">NA</span> gallons/ft<sup>3</sup></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">Strong Base Anion: </td>
+							<td><span id="tp-sba" style="color: #00A;">NA</span> gallons/ft<sup>3</sup></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">Mixed Bed:<br><span style="font-size: .8em; color: #333;">(60% Anion / 40% Cation)</span> </td>
+							<td><span id="tp-mxb-6040" style="color: #00A;">NA</span> gallons/ft<sup>3</sup></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">Mixed Bed:<br><span style="font-size: .8em; color: #333;">(50% Anion / 50% Cation)</span> </td>
+							<td><span id="tp-mxb-5050" style="color: #00A;">NA</span> gallons/ft<sup>3</sup></td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+
+			<div class="col-lg-4 col-sm-4 col-md-4">
+                <div class="section-title text-left"> 
+
+
+                    {{#each box }}
+                    <h4>{{ title }}</h4>
+                    <hr>
+                    <p class="fr-view">{{{ content }}}</p>
+
+                    {{/each }}
+                </div>
+            </div>
+
+			
+            
+
+		</div>
+		<!-- <div class="row"> -->
+			
+			<!-- <div class="col-sm-4">&nbsp;</div> -->
+		<!-- </div>
+ -->
+	</div>
+
+    </div>
+</template>

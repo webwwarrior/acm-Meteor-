@@ -1,0 +1,153 @@
+<template name="header">
+    {{#if currentUser }}
+      {{> adminBar }}
+    {{/if }}
+    
+    <!-- Top Navigation
+    ========================-->
+    <nav class="top-menu" style="background-image:url({{ dict 'parallax.topNav.url' }});background-repeat: no-repeat;background-size: cover;">
+        <div class="container">
+            <div class="row">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+
+                <div class="col-sm-4 col-md-4">
+                    <div class="navbar-header">
+                        <a class="logo navbar-brand" href="{{ pathFor 'home' }}"><img src="{{ dict 'home.logo.url' '#' }}" alt="" style="width: 100%;"></a>
+                    </div>
+                </div>  
+
+                <div class="col-sm-8 col-md-8">
+                    <ul class="top-links list-unstyled text-right">
+                        <li class="top-contact">
+                            <ol class="list-inline">
+                                <li><i class="fa fa-phone"></i> : {{ dict 'home.mainNumber' 'No Phone number' }}</li>
+                                <li><i class="fa fa-fax" aria-hidden="true"></i> : {{ dict 'home.faxNumber' 'No Fax number' }}</li>
+                                
+                            </ol>
+                        </li>
+                        <li>
+                            <ol class="social-icons list-inline">
+
+                                {{#if dict 'social.Facebook URL' }}
+                                
+
+                                <li><a class="facebook" href="{{ dict 'social.Facebook URL' '#' }}" target="_BLANK"><i class="fa fa-facebook-square"></i></a></li>
+                                {{/if }}
+
+                                {{#if dict 'social.Twitter URL' }}
+                            
+
+                                <li><a class="twitter" href="{{ dict 'social.Twitter URL' '#' }}" target="_BLANK"><i class="fa fa-twitter"></i></a></li>
+                                {{/if}}
+
+                                {{#if dict 'social.Google URL' }}
+
+                                 <li><a class="google" href="{{ dict 'social.Google+ URL' '#' }}" target="_BLANK"><i class="fa fa-google-plus"></i></a></li>
+
+                                {{/if }}
+
+                                {{#if dict 'social.LinkedIn URL' }}
+                                <li><a href="{{ dict 'social.LinkedIn URL' '#' }}" target="_BLANK"><i class="fa fa-linkedin"></i></a></li>
+                                {{/if }}
+
+<!--                                 <li><a class="facebook" href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+                                <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a></li> -->
+                            </ol>
+                        </li>
+                    </ul>
+
+                    <div class="hide-on-med-and-up">
+                        {{> searchBox }}
+                    </div>
+                </div>  
+                            
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Navigation
+    ========================-->
+    <div id="sticky-anchor"></div>
+    <nav id="main-menu" class="navbar navbar-default">
+        <div class="container">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myMenu">
+                    <i class="fa fa-list-ul"></i>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="myMenu">
+                <ul class="nav navbar-nav navbar-left">
+                  <!--   <li class="{{ isActiveRoute 'home' }} hide-on-small-only"><a href="{{ pathFor 'home' }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li> -->
+
+                    {{#each parentPage }}
+                    <li class="{{ isActivePath regex=path }} dropdown hide-on-small-only">
+                        <a href="{{ path }}" class="dropdown-toggle" data-hover="dropdown">
+                            {{ title }}<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            {{#each childPage title }}
+                            <li><a tabindex="-1" href="{{ path }}">{{ title }}</a></li>
+                            {{/each }}
+                            
+                            
+                        </ul>
+                    </li>
+                    {{/each }}
+
+
+                    <li class="{{ isActiveRoute 'contact' }} hide-on-small-only"><a href="{{ pathFor 'contact' }}">Contact</a></li>
+                    <li class="{{ isActiveRoute 'allPosts' }} hide-on-small-only"><a href="{{ pathFor 'allPosts' }}">News</a></li>
+
+                    {{> mobileMenu }}
+                     
+                    
+                </ul>
+
+                {{> searchBox }}
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container -->
+    </nav>
+
+ 
+</template>
+
+<template name="mobileMenu">
+    
+    <li class="hide-on-med-and-up">
+        <a href="{{ pathFor 'home' }}" data-toggle="collapse" data-target=".navbar-collapse">Home</a>
+    </li>
+
+    {{#each parentPage }}
+    <li class="hide-on-med-and-up">
+      <a href="{{ path }}" role="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">{{ title }} <span class="caret"></span></a>
+      <ul class="" role="menu">
+        {{#each childPage title }}
+        <li><a href="{{ path }}" data-toggle="collapse" data-target=".navbar-collapse">{{ title }}</a></li>
+        {{/each }}
+        
+      </ul>
+    </li>
+    {{/each }}
+
+    <li class="hide-on-med-and-up">
+        <a href="{{ pathFor 'contact' }}" data-toggle="collapse" data-target=".navbar-collapse">Contact</a>
+    </li>
+
+    <li class="hide-on-med-and-up">
+        <a href="{{ pathFor 'allPosts' }}" data-toggle="collapse" data-target=".navbar-collapse">News</a>
+    </li>
+
+<!--     <li class="hide-on-med-and-up">
+        <a href="{{ pathFor 'search' }}" data-toggle="collapse" data-target=".navbar-collapse">Search</a>
+    </li> -->
+</template>

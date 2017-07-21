@@ -1,0 +1,35 @@
+<template name="sponsors">
+    <!-- Our Partners
+    ========================-->
+    <div id="en-partners">
+        <div class="container">
+            <div class="row">
+
+                <!-- Left Content 4 Cols -->
+                <div class="col-md-4">
+                    <div class="section-title text-left"> <!-- Left Section Title -->
+                        <h2>{{ dict 'home(section titles).sponsorsTitle' 'No Title' }}</h2>
+                        <hr>
+                        <small>{{ dict 'home(section titles).sponsorsSubTitle' 'No Sub Title' }}</small>
+                    </div>
+                </div>
+
+                <!-- Right Content 8 Cols -->
+                <div class="col-md-8">
+                    <div class="row">
+                        {{#each sponsorEach }}
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                            <a href="{{ website }}" target="_BLANK"><img src="{{ image.url }}" class="img-responsive" alt="..."></a>
+                        </div>
+                        {{/each }}
+
+                       
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</template>

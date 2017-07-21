@@ -1,0 +1,7 @@
+/*box color on pages */
+
+.orionAttributesHasMany.selectize-control.multi .selectize-input [data-value] .remove {
+    border-left: 1px solid #3176BF;
+    background-color: #3176BF;
+    color: white;
+}

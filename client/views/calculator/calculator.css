@@ -1,0 +1,13 @@
+.auto-container {
+	    position: static;
+    max-width: 1200px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+
+table td {
+	padding: 8px!important;
+    line-height: 1.42857143!important;
+    vertical-align: top!important;
+    border-top: 1px solid #ddd!important;
+}

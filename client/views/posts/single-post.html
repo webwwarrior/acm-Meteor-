@@ -1,0 +1,116 @@
+<template name="singlePost">
+     <!-- Page Header
+    ========================-->
+    <div id="en-header">
+        <div class="container">
+            <h2 class="pull-left">{{ post.title }}</h2>
+            <ol class="breadcrumb pull-right">
+              <li><a href="{{ pathFor 'home' }}">Home</a></li>
+              <li><a href="{{ pathFor 'allPosts' }}">News Blog</a></li>
+              <li class="active">{{ post.title }}</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Page Content
+    ========================-->
+    <div id="en-content">
+        <div class="container">
+
+            <div id="blogposts" class="row">
+                <!-- Blog Posts Content -->
+                <div class="col-md-8">
+
+                    <div class="single-post fr-view"> <!-- Blog Post/News #1 -->
+                        <div class="featured-img" style="width:200px;">
+                             {{#if post.image.url }}
+                            <img src="{{ post.image.url }}" alt="..." class="img-responsive">
+
+                            {{ else }}
+                                
+                            {{/if }}
+                        </div>                            
+                        <h3>{{ post.title }}</h3>
+                        <p class="meta">
+                            <span class="meta-date"><i class="fa fa-calendar"></i> {{ formatDatePosts post.submitted }}</span>
+                            <!-- <span class="meta-tags"><i class="fa fa-tags"></i> <a href="#">Architecture</a></span> 
+                            <span class="meta-comments"><i class="fa fa-comments"></i> <a href="">20 Comments</a></span> -->
+                        </p>
+                        <hr>
+                         {{{ post.body }}}
+
+                        <div class="clearfix"></div>
+                        <br>
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="smallspacer"></div>
+
+                    <ul class="list-inline share">
+                        <li>Share This Post : </li>
+                        <br>
+                        <li>{{> socialShareBasic }} </li>                     
+                    </ul>
+
+                    <div class="clearfix"></div>
+                    <div class="smallspacer"></div>
+
+
+
+                    <div class="clearfix"></div>
+                    <div class="smallspacer"></div>
+
+                   
+
+                    <div class="clearfix"></div>
+                    <div class="smallspacer"></div>
+
+                    
+
+                </div> <!-- End Blog Posts Content -->
+
+                <!-- Sidebar -->
+                <div class="col-md-4">
+                    <div class="sidebar">
+
+                        <div class="sidebar-widget recent-posts">
+                            <div class="widget-title text-left">
+                                <h4>Recent Posts</h4>
+                                <hr>
+                            </div>
+                            
+                            {{#each sidePosts }}
+                            <div class="media">
+                                <!-- <div class="media-left">
+                                    <a href="{{ pathFor 'singlePost' }}">
+                                      <img class="media-object" alt="" src="{{ image.url }}" style="width:74px;height:64px;">
+                                    </a>
+                                  </div> -->
+                                  <div class="media-body">
+                                    <a href="{{ pathFor 'singlePost' }}" target="_BLANK"><h5>
+                                        {{ title }}</h5>
+                                    </a>
+                                    <small>
+                                        <span class="meta-date"><i class="fa fa-calendar"></i> {{ formatDateSinglepostSide submitted }} </span>
+                                        <!-- <span class="meta-comments"><i class="fa fa-comments"></i> <a href="#">2 comments</a></span> -->
+                                    </small>
+                                  </div>
+                            </div>
+                            {{/each }}                  
+
+                        </div>
+                       
+
+
+                        
+
+                    </div>
+                </div><!-- End Sidebar -->
+
+            </div>
+
+        </div>
+    </div>
+</template>
+

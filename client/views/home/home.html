@@ -1,0 +1,138 @@
+<template name="home">
+	{{> mainSlider }}
+  <!-- Intro 
+    ========================-->
+    <div id="en-intro">
+        <div class="container">
+            <div class="row">
+
+                <!-- Left Content 4 Cols -->
+                <div class="col-sm-2 col-md-2">
+                    <div class="section-title text-left"> <!-- Left Section Title -->
+                        <h2>{{ dict 'home.aboutUsTitle' 'No Title' }}</h2>
+                        <hr>
+                        <small>{{ dict 'home.aboutUsDesc' 'No Sub Title' }}</small>
+                    </div>
+                </div>
+
+                <!-- Right Content 8 Cols -->
+                <div class="col-sm-8 col-md-8">
+                    <p class="about_us fr-view">{{{ dict 'home.aboutUsContent' 'No Content' }}}</p>
+
+                    <a class="read-more" href="{{ dict 'home.btnLink' }}">
+                        {{ dict 'home.btnText' 'No Text' }} <span class="fa fa-chevron-circle-right"></span>
+                    </a>
+                </div>
+
+
+                <!-- Left Content 4 Cols -->
+                <div class="col-sm-2 col-md-2">
+                    <div class="section-title text-left fr-view"> 
+                        <!-- Right Section Title -->
+                        <!-- <h2>{{ dict 'home.rightSectionTitle' }}</h2>
+                        <hr>
+                        {{{ dict 'home.rightSectionContent' }}} -->
+
+                        {{#each boxes }}
+                            <h4>{{ title }}</h4>
+                            <hr>
+                            <p class="fr-view">{{{ content }}}</p>
+                        {{/each }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Service
+    ========================-->
+    <div id="en-services">
+        <div class="container">
+
+            <div class="section-title text-center"><!-- Centered Section Title -->
+                <h2>{{ dict 'home(services).serviceOneSectionTitle' 'No Title' }}</h2>
+                <hr>
+                <p class="fr-view">{{{ dict 'home(services).serviceOneSectionContent' 'No Content' }}}</p> 
+                <a class="read-more-red" href="{{ dict 'home(services).serviceOneSectionBtnLink' }}">{{ dict 'home(services).serviceOneSectionBtnText' }} <span class="fa fa-chevron-circle-right"></span></a>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <div class="service"> <!-- Service #1 -->
+                        <a href="{{ dict 'home(services).serviceOneBtnLink' }}">
+                            <img src="{{ dict 'home(services).serviceOneImage.url' }}" alt="" class="img-responsive">
+                        </a>
+                        <a href="{{ dict 'home(services).serviceOneBtnLink' }}"><h4>{{ dict 'home(services).serviceOneTitle' 'No Title'}}</h4></a>
+                        <p>{{ dict 'home(services).serviceOneContent' 'No Content' }}</p>
+                        <a class="read-more-red" href="{{ dict 'home(services).serviceOneBtnLink' }}">{{ dict 'home(services).serviceOneBtnText' 'No Text' }} <span class="fa fa-chevron-circle-right"></span></a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-md-4">
+                    <div class="service"> <!-- Service #2 -->
+                        <a href="{{ dict 'home(services).serviceTwoBtnLink' }}">
+                            <img src="{{ dict 'home(services).serviceTwoImage.url' }}" alt="" class="img-responsive">
+                        </a>
+                        <a href="{{ dict 'home(services).serviceTwoBtnLink' }}"><h4>{{ dict 'home(services).serviceTwoTitle' 'No Title'}}</h4></a>
+                        <p>{{ dict 'home(services).serviceTwoContent' 'No Content' }}</p>
+                        <a class="read-more-red" href="{{ dict 'home(services).serviceTwoBtnLink' }}">{{ dict 'home(services).serviceTwoBtnText' 'No Text' }} <span class="fa fa-chevron-circle-right"></span></a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-md-4">
+                    <div class="service"> <!-- Service #3 -->
+                        <a href="{{ dict 'home(services).serviceThreeBtnLink' }}">
+                            <img src="{{ dict 'home(services).serviceThreeImage.url' }}" alt="" class="img-responsive">
+                        </a>
+                        <a href="{{ dict 'home(services).serviceThreeBtnLink' }}"><h4>{{ dict 'home(services).serviceThreeTitle' 'No Title'}}</h4></a>
+                        <p>{{ dict 'home(services).serviceThreeContent' 'No Content' }}</p>
+                        <a class="read-more-red" href="{{ dict 'home(services).serviceThreeBtnLink' }}">{{ dict 'home(services).serviceThreeBtnText' 'No Text' }} <span class="fa fa-chevron-circle-right"></span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CTA
+    ========================-->
+    <div class="en-cta" style="background-image: url( {{ dict 'parallax.homeDividerImage.url' }});">
+        <div class="overlay color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h2>{{ dict 'home(section titles).homePageDividerTitle' 'No Title' }}</h2>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-default en-btn light" href="{{ dict 'home(section titles).homePageMeBtnLink' '#' }}" role="button">{{ dict 'home(section titles).homePageBtnText' 'No Text' }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects
+    ========================-->
+  <!--   <div id="en-portfolio">
+        <div class="container"> -->
+
+            <!-- <div class="section-title text-center" style="margin-bottom: 0px!important;">
+                <h2>{{ dict 'home(section titles).teamTitle' 'no title' }}</h2>
+                <hr>
+                <p>{{ dict 'home(section titles).teamSubTitle' 'no sub title' }} </p>
+                <a class="read-more" href="{{ pathFor 'teamMembers' }}">View All Team Members <span class="fa fa-chevron-circle-right"></span></a>
+            </div> -->
+
+
+<!-- 
+        </div>
+    </div>
+ -->
+    <!-- {{> testimonialsAll }} -->
+
+    {{> homePosts }}
+
+    {{> sponsors }}
+    
+</template>

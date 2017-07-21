@@ -1,0 +1,124 @@
+<template name="sitemap">
+    
+    <!-- Page Header
+    ========================-->
+    <div id="en-header">
+        <div class="container">
+            <h2 class="pull-left">Sitemap</h2>
+            <ol class="breadcrumb pull-right">
+              <li><a href="{{ pathFor 'home' }}">Home</a></li>
+              <li class="active">Sitemap</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Page Content
+    ========================-->
+    <div id="en-content">
+    
+        <!-- Company History
+        ========================-->
+        <div class="auto-container">
+            <div class="row sitemap">
+                <ul>
+                    <li><a class="text-uppercase first_branch" href="{{ pathFor 'home' }}">Home</a></li>
+                    {{#each parentPage }}
+                    <li>
+                        <a class="text-uppercase" href="{{ path }}">{{ title }}</a>
+                            <ul>
+                                {{#each childPage title }}
+                                <li><a href="{{ path }}"><i class="fa fa-chevron-right"></i> {{ title }}</a>
+                                    <ul>
+                                        {{#each grandChildPage title }}
+                                        <li>
+                                            <a href="{{ path }}"><i class="fa fa-chevron-right"></i> {{ title }} </a>
+                                        </li>
+                                        {{/each }}
+                                    </ul>
+                                </li>
+                                {{/each }}
+                            </ul>
+                    </li>
+                    {{/each }}
+                    <!-- <li><a class="text-uppercase" href="{{ pathFor 'calendar' }}">Members</a></li>
+                    <li><a class="text-uppercase" href="{{ pathFor 'calendar' }}">Events</a></li>
+                    <li><a class="text-uppercase" href="{{ pathFor 'gallery' }}">Gallery</a></li>
+                    <li><a class="text-uppercase" href="{{ pathFor 'allPosts' }}">News</a></li> -->
+                    <li><a class="text-uppercase" href="{{ pathFor 'contact' }}">Contact Us</a></li> 
+                </ul>   
+
+                
+            </div>
+        </div> <!-- End History Section -->
+        
+    </div>
+
+        <!-- CTA
+    ========================-->
+    <div class="en-cta" style="background-image: url( {{ dict 'parallax.homeDividerImage.url' }});">
+        <div class="overlay color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h2>{{ dict 'home(section titles).homePageDividerTitle' 'No Title' }}</h2>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-default en-btn light" href="{{ dict 'home(section titles).homePageMeBtnLink' '#' }}" role="button">{{ dict 'home(section titles).homePageBtnText' 'No Text' }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <style>
+        .sitemap  ul {
+            margin: 0 auto;
+            display:table;
+        }
+
+        .sitemap ul li {
+            margin-top: 0;
+            padding: 12px 0 6px;
+            font-size: 22px;
+            color: #001489;
+        }
+
+        #en-content .sitemap ul li a {
+            color: #001489!important;
+            
+            font-weight: 600;
+        }
+
+        .sitemap ul li ul {
+            list-style-type: none;
+            margin-left: 30px;
+        }
+
+        #en-content .sitemap ul li ul li a {
+            color: #BA0C2F!important;            
+            font-weight: 600;
+        }
+
+        /* 3rd level */
+
+        .sitemap ul li ul li {
+            font-size: 16px;
+            color: #000;
+            
+            /*background: url("../images/inners/leaf-list-style.png") no-repeat center left;*/
+        }
+
+       .sitemap ul li ul li ul li {
+            font-size: 13px;            
+            /*background: url("../images/inners/leaf-list-style.png") no-repeat center left;*/
+        }
+
+        #en-content .sitemap ul li ul li ul li a{
+            font-size: 13px;
+            color: #222222!important;
+            
+            /*background: url("../images/inners/leaf-list-style.png") no-repeat center left;*/
+        }
+    </style>
+
+</template>

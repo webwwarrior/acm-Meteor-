@@ -1,0 +1,75 @@
+<template name="homePosts">
+        <!-- News Section
+    ========================-->
+    <div id="en-news">
+        <div class="container">
+
+            <div class="section-title text-center"><!-- Centered Section Title -->
+                <h2>{{ dict 'home(section titles).blogTitle' 'No Title' }}</h2>
+                <hr>
+                <p>{{ dict 'home(section titles).blogSubTitle' 'No Sub Title' }} </p>
+                <a class="read-more-red" href="{{ pathFor 'allPosts' }}">View All News <span class="fa fa-chevron-circle-right"></span></a>
+            </div>
+
+            <div class="row">
+                {{#each posts }}
+                <div class="col-sm-4 col-md-4">
+                    <div class="news">  <!-- Blog Post/News #1 -->
+                        <span class="meta-date"><i class="fa fa-calendar"></i> {{ formatDatePosts submitted }}</span>
+                        <a href="{{ pathFor 'singlePost' }}"><h4>{{ title }}</h4></a>
+                        <hr>
+                        <!-- <p class="meta">
+                            <span class="meta-tags">
+                                <i class="fa fa-tags"></i> 
+                                <a href="#">Architecture</a>
+                            </span> 
+                            <span class="meta-comments">
+                                <i class="fa fa-comments"></i> 
+                                <a href="">20 Comments</a>
+                            </span>
+                        </p> -->
+                        <p class="fr-view">{{{ truncatePost }}}</p>
+                        <a class="read-more-red" href="{{ pathFor 'singlePost' }}">Read More <span class="fa fa-chevron-circle-right"></span></a>
+                    </div>
+                </div>
+                {{/each }}
+
+
+            </div>
+
+        </div>
+    </div>
+</template>
+
+<template name="homePosts2">
+    <!--Blog Section-->
+    <section class="site-content default-section blog-section">
+        <div class="auto-container">
+            
+            <!--Section Title-->
+            <div class="sec-title text-center margin-bott-40">
+                <div class="theme-text-blue">{{ dict 'home(section titles).blogSubTitle' 'No Posts Subtitle' }}</div>
+                <h2>{{ dict 'home(section titles).blogTitle' 'No Posts Title' }}</h2>
+            </div>
+            
+            <div class="row clearfix">
+                {{#each posts }}
+                <!--Column-->
+                <div class="col-md-4 col-sm-6 col-xs-12 post-item">
+                    <article class="inner-box">
+                        <figure class="image-box"><a href="{{ pathFor 'singlePost' }}"><img src="{{ image.url }}" alt="" title="{{ title }}"></a></figure>
+                        <div class="content">
+                            <h3><a href="{{ pathFor 'singlePost' }}">{{ title }}</a></h3>
+                            <div class="post-info"><a href="#">{{ getCreator.profile.name }}</a> {{ formatDatePosts submitted }}</div>
+                            <div class="text truncate"><p>{{{ body }}}</p></div>
+                            <br>
+                            <a href="{{ pathFor 'singlePost' }}" class="theme-btn btn-style-one">read more</a>
+                        </div>
+                    </article>
+                </div>
+                {{/each }}
+                
+            </div>
+        </div>
+    </section>
+</template>
